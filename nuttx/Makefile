@@ -19,7 +19,8 @@ ifneq ($(if $(MAKECMDGOALS),$(filter-out help clean distclean,$(MAKECMDGOALS)),a
   -include .dependencies.mk
 endif
 
-.PHONY: build $(filter nuttx/%,$(MAKECMDGOALS))
+NUTTXGOALS = $(filter nuttx/%,$(MAKECMDGOALS))
+.PHONY: build $(NUTTXGOALS)
 build: core/nuttx
 
 CONFIG_CROSSDEV ?= riscv32-none-elf-
@@ -46,14 +47,14 @@ core/%: .FORCE
 define XNUTTXCONF
 $(1): core/.config
 endef
-COREGOALS = core/nuttx $(filter core/%,$(MAKECMDGOALS))
+COREGOALS = core/nuttx $(filter core/%,$(MAKECMDGOALS)) $(patsubst nuttx/%,core/%,$(NUTTXGOALS))
 $(foreach X,$(filter-out core/.config core/%clean,$(COREGOALS) core/nuttx),$(eval $(call XNUTTXCONF,$(X))))
 
 # nuttx alias for core
 define XNUTTXCORE
 $(1): $(patsubst nuttx/%,core/%,$(1))
 endef
-$(foreach X,$(filter nuttx/%,$(MAKECMDGOALS)),$(eval $(call XNUTTXCORE,$(X))))
+$(foreach X,$(NUTTXGOALS),$(eval $(call XNUTTXCORE,$(X))))
 
 ## Runing in Qemu ##############################################################
 
