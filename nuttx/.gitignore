@@ -1,0 +1,13 @@
+/nuttx
+/.config
+/.config.old
+/.dependencies.mk
+/openocd.log
+
+Make.dep
+.depend
+.kconfig
+.built
+*.o
+*.a
+*.ddc

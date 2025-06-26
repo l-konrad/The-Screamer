@@ -1,0 +1,22 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config MESON_APPS
+	tristate "Project's Meson applications"
+	default y
+	---help---
+		Applications defined in top level Meson project.
+
+if MESON_APPS
+
+config MESON_APPS_DEFAULT_PRIORITY
+	int "Default startup task priority"
+	default 100
+
+config MESON_APPS_DEFAULT_STACKSIZE
+	int "Default startup stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+endif

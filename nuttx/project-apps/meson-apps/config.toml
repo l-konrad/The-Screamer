@@ -1,0 +1,4 @@
+# This file can be used to configure stack size and task priority
+[mhello]
+stacksize = 1024
+priority = 100

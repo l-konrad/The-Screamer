@@ -1,0 +1,8 @@
+{
+  "SpacesAfterTabs": true,
+  "Exclude": ["Makefile", "Make.defs"],
+  "Disable": {
+    "IndentSize": true,
+    "MaxLineLength": true
+  }
+}

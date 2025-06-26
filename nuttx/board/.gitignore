@@ -1,0 +1,3 @@
+/include/nsh_romfsimg.h
+/scripts/flash.ld
+/scripts/openocd.tcl

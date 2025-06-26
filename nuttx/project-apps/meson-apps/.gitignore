@@ -1,0 +1,7 @@
+/build
+/crossfile.ini
+/build.ninja.mk
+/Toolchain.cmake
+/*.d
+/libsyms
+/.lock

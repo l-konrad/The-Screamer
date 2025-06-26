@@ -1,0 +1,41 @@
+mainmenu "NuttX project configuration"
+
+config ASSERT
+	bool "Build with debug asserts enabled."
+	default y
+
+config DEBUG
+	bool "Build with debug features enabled"
+	depends on !BOOTLOADER
+	depends on ASSERT
+
+config FLASH_VERIFY
+	bool "Verify the content after flash"
+	default n
+	---help---
+	Verify the content on the storage after flash. Disabling this allows faster
+	load time as verify is required only when we expect issues with the flash
+	storage.
+
+choice
+	prompt "Programmer selection"
+	default PROGRAMMER_CMSISDAP
+
+config PROGRAMMER_STLINK
+	bool "STLink-v2.1"
+
+config PROGRAMMER_JLINK
+	bool "J-Link"
+
+config PROGRAMMER_XDS110
+	bool "XDS110"
+
+config PROGRAMMER_CMSISDAP
+	bool "CMSIS-DAP"
+
+endchoice
+
+config CROSSDEV
+	string "Toolchain prefix"
+	default "riscv32-none-elf-"
+
