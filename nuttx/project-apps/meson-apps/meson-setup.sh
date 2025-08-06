@@ -14,6 +14,7 @@ if ! [[ -f "build/build.ninja" ]] || [[ "crossfile.ini" -nt "build/build.ninja" 
 	echo "Meson applications setup"
 	meson setup ${meson_wipe:+--wipe} \
 		--default-library static \
+		-Db_staticpic=false \
 		--backend ninja \
 		--cross-file crossfile.ini \
 		build ../../..
