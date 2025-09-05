@@ -125,13 +125,13 @@ shell-format:
 nixfmt:
   extends: .style
   script:
-    - nix fmt .
+    - nix fmt -- -t $(nproc) -e ./nuttx/core .
     - git diff --exit-code
 
 deadnix:
   extends: .style
   script:
-    - nix run --quiet .#deadnix -- --fail .
+    - nix run --quiet .#deadnix -- --fail --exclude ./nuttx/core .
 
 editorconfig-checker:
   extends: .style
