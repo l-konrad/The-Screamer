@@ -13,8 +13,11 @@ export CROSSDEV="riscv32-none-elf-"
 itype=' error'
 imessage=' Path relative to repository other than "nuttx" must begin with the root directory'
 
+make -C "$project/core/tools" -f Makefile.host nxstyle 1>/dev/null
+
 ec=0
 while IFS=: read -r file line char type message; do
+	[[ -n "$file" ]] || continue
 	echo -n "$file:$line:$char$type:$message" >&2
 	if [[ "$type" == "$itype" ]] && [[ "$message" == "$imessage" ]]; then
 		echo " (Ignored)"
@@ -26,8 +29,8 @@ done <<<"$(
 	git ls-files \
 		"$project/board/**" \
 		"$project/project-apps/**" \
-		"$project/project-libs/** -s |
-			grep -v ^16 | cut -f2-" | xargs "$nuttx_tools/checkpatch.sh" -f
+		"$project/project-libs/**" |
+		xargs -n1 "$nuttx_tools/nxstyle" 2>&1
 )"
 
 exit $ec
