@@ -67,7 +67,7 @@ LIBRARIES += build/$(1)
 build/$(1).built: build/$(1)
 	$$(ECHO_BEGIN)"AR: $(1) "
 	$$(Q) mkdir -p build/$(1).a
-	$$(Q) $$(firstword $$(AR)) x --output build/$(1).a build/$(1)
+	$$(Q) $$(UNAR) --output build/$(1).a build/$(1)
 	$$(Q) cd build/$(1).a && for f in *.o; do mv "$$$$f" "$(subst $(DELIM),.,$(1))_$$f"; done
 	$$(Q) $$(call ARLOCK, $$(call CONVERT_PATH,$$(BIN)), build/$(1).a/*)
 	$$(Q) $$(call DELDIR, build/$(1).a)
