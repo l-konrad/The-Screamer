@@ -1,7 +1,6 @@
 stages:
   - devenv
   - build
-  - build-werror
   - lint
   - style
   - release
