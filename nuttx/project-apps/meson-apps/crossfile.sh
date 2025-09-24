@@ -17,7 +17,7 @@ march="${march/ */}"
 # Flags are being reordered and options are removed from their argument if they
 # have space between them. This removes that one specific space for -I.
 flags_sanit() {
-	sed -E "s#-Werror##;s#\"##g; s#-I #-I#g" <<<"$1"
+	sed -E "s#-Wshadow##;s#\"##g; s#-I #-I#g" <<<"$1"
 }
 # Make from flag words list of arguments for Meson to use
 meson_flags_sanit() {
