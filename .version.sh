@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-GIT_REV="-dirty"
+GIT_REV=""
 if command -v git >/dev/null && git rev-parse --git-dir >/dev/null 2>&1; then
 	GIT_REV="$(git rev-parse --quiet --short HEAD)"
 	git diff-index --quiet HEAD ||
