@@ -9,4 +9,5 @@
 	url = https://github.com/MusicPlayerDaemon/libmpdclient.git
 [submodule "mpc"]
 	path = mpc
-    url = git@github.com:l-konrad/The-Screamer.git
+	url = git@github.com:l-konrad/nuttx-mpc.git
+	branch = master
