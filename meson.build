@@ -14,4 +14,4 @@ endif
 add_project_arguments('-DPROJECT_VERSION="@0@"'.format(meson.project_version()), language: 'c')
 
 
-subdir('mhello')
+subdir('mpc')
