@@ -4,3 +4,9 @@
 [submodule "nuttx/apps"]
 	path = nuttx/apps
 	url = https://github.com/apache/nuttx-apps.git
+[submodule "subprojects/libmpdclient"]
+	path = subprojects/libmpdclient
+	url = https://github.com/MusicPlayerDaemon/libmpdclient.git
+[submodule "mpc"]
+	path = mpc
+	url = https://github.com/MusicPlayerDaemon/mpc.git
