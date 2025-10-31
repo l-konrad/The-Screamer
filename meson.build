@@ -16,4 +16,3 @@ add_project_arguments('-DPROJECT_VERSION="@0@"'.format(meson.project_version()),
 
 subdir('mpc')
 
-subdir('phy_mpc')
