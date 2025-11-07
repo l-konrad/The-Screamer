@@ -326,6 +326,7 @@ static int button_daemon(int argc, char *argv[])
               printf("%s was released\n", button_name[i]);
               if ((strcmp( button_name[i], "Play/Pause")==0) ){
                 printf("Stopping/Playing Music");
+				system("sh /data/test.sh");
 
               }
             }
