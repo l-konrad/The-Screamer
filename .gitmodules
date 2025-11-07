@@ -1,6 +1,6 @@
 [submodule "nuttx/core"]
 	path = nuttx/core
-	url = https://github.com/apache/nuttx.git
+	url = git@github.com:l-konrad/nuttx-the-screamer.git
 [submodule "nuttx/apps"]
 	path = nuttx/apps
 	url = https://github.com/apache/nuttx-apps.git
